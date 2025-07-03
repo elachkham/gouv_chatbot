@@ -1,0 +1,42 @@
+[
+{
+"query": "Quel est le délai de préavis pour un CDD ?",
+"ground_truth": "Le préavis dépend de la durée du contrat et est défini dans le Code du Travail, généralement calculé en jours ouvrés."
+},
+{
+"query": "Le salarié a-t-il droit à des congés payés pendant un CDD ?",
+"ground_truth": "Oui, le salarié en CDD a droit à des congés payés, à raison de 2,5 jours ouvrables par mois travaillé."
+},
+{
+"query": "Peut-on rompre un CDD avant son terme ?",
+"ground_truth": "Un CDD peut être rompu avant son terme uniquement dans certains cas : accord entre les parties, faute grave, force majeure ou embauche en CDI."
+},
+{
+"query": "Quel est le montant minimum du SMIC en 2024 ?",
+"ground_truth": "Le montant brut horaire du SMIC est fixé à environ 11,65 € en 2024 (à vérifier sur le site officiel)."
+},
+{
+"query": "Quelles sont les obligations de l'employeur pour la santé du salarié ?",
+"ground_truth": "L'employeur doit prendre toutes les mesures nécessaires pour assurer la sécurité et protéger la santé physique et mentale des travailleurs."
+},
+{
+"query": "Combien d'heures peut-on faire en heures supplémentaires ?",
+"ground_truth": "La limite légale annuelle est de 220 heures supplémentaires sauf disposition différente dans la convention collective."
+},
+{
+"query": "Le travail de nuit est-il encadré ?",
+"ground_truth": "Oui, il est strictement encadré et soumis à autorisation. Il doit respecter des plages horaires précises et donner lieu à une compensation."
+},
+{
+"query": "Quelle est la durée maximale d'une période d'essai ?",
+"ground_truth": "La durée maximale dépend du poste, mais est généralement de 2 à 4 mois, renouvelable une fois selon la convention collective."
+},
+{
+"query": "Le salarié peut-il refuser une modification de son contrat ?",
+"ground_truth": "Oui, toute modification d’un élément essentiel du contrat (horaire, rémunération) nécessite l’accord du salarié."
+},
+{
+"query": "Un arrêt maladie suspend-il le contrat de travail ?",
+"ground_truth": "Oui, l'arrêt maladie suspend l'exécution du contrat de travail, mais ne le rompt pas."
+}
+]

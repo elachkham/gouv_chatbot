@@ -1,0 +1,25 @@
+﻿# Fichiers à ignorer lors du build
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.git/
+.gitignore
+README.md
+Dockerfile*
+.dockerignore
+node_modules/
+.npm/
+*.log
+.DS_Store
+.pytest_cache/
+.coverage
+.nyc_output/
+*.tmp
+*.temp

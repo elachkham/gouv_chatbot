@@ -1,0 +1,9 @@
+project_name: chatbot-code-travail
+description: Chatbot RAG francophone sur le Code du Travail
+model: gemini-1.5-flash
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+retriever: FAISS
+corpus_path: data/code_travail.txt
+index_path: vector_store/faiss_index/index.faiss
+test_dataset: evaluation/fake_dataset.json
+ragas_threshold: 0.70

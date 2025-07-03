@@ -1,0 +1,31 @@
+
+# Vector store (généré automatiquement)
+vector_store/
+*.faiss
+*.pkl
+data/*.pdf
+data/*.txt
+
+# Vector store (généré automatiquement)
+vector_store/
+*.faiss
+*.pkl
+
+# Data files volumineux  
+data/*.pdf
+data/*.txt
+.cache/
+
+# Secrets et configuration sensible  
+.env
+.env.*
+!.env.example
+*.key
+config/secrets.json
+
+# Secrets et configuration sensible  
+.env
+.env.*
+!.env.example
+*.key
+config/secrets.json

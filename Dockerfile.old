@@ -1,0 +1,71 @@
+# Dockerfile Simple et Fonctionnel
+
+# ==============================================
+# STAGE 1: Build Frontend React
+# ==============================================
+FROM node:18-alpine AS frontend-builder
+
+WORKDIR /frontend
+
+# Copier package.json du frontend
+COPY frontend/package*.json ./
+
+# Installer les dépendances Node.js
+RUN npm ci --only=production
+
+# Copier le code source du frontend
+COPY frontend/ ./
+
+# Build de production React
+RUN npm run build
+
+# ==============================================
+# STAGE 2: Backend Python Simple
+# ==============================================
+FROM python:3.10-slim AS production
+
+# Variables d'environnement
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Installer curl pour healthcheck
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copier requirements.txt et installer les dépendances
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+# Copier le code backend
+COPY app/ ./app/
+
+# Copier les autres dossiers nécessaires
+COPY data/ ./data/
+COPY evaluation/ ./evaluation/
+COPY manifest.yaml ./
+
+# Créer les dossiers nécessaires
+RUN mkdir -p ./vector_store/faiss_index
+
+# Copier le build frontend depuis le stage précédent
+COPY --from=frontend-builder /frontend/build ./frontend/build
+
+# Créer un utilisateur non-root pour la sécurité
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN chown -R appuser:appuser /app
+USER appuser
+
+# Exposer le port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD curl -f http://localhost:8000/ || exit 1
+
+# Commande de démarrage
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

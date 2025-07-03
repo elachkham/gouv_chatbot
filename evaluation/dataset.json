@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Quelles sont les durées légales de travail hebdomadaire en France ?",
+    "expected_answer": "La durée légale du travail en France est de 35 heures par semaine pour un temps plein."
+  },
+  {
+    "question": "Quelle est la durée maximale quotidienne de travail ?",
+    "expected_answer": "Un salarié ne peut pas travailler plus de 10 heures par jour sauf dérogation."
+  },
+  {
+    "question": "Combien de jours de congé payé par an ?",
+    "expected_answer": "Le salarié a droit à 2,5 jours ouvrables de congé payé par mois travaillé, soit 30 jours ouvrables par an."
+  },
+  {
+    "question": "Quelles sont les conditions pour un CDI ?",
+    "expected_answer": "Le contrat à durée indéterminée (CDI) est la forme normale et générale du contrat de travail. Il n'est pas limité dans le temps."
+  },
+  {
+    "question": "Le travail de nuit est-il réglementé ?",
+    "expected_answer": "Oui, le travail de nuit est encadré et ne peut excéder 8 heures consécutives sauf dérogation."
+  },
+  {
+    "question": "Ai-je droit à une pause pendant ma journée ?",
+    "expected_answer": "Oui, toute personne travaillant plus de 6 heures bénéficie d’une pause de 20 minutes minimum."
+  },
+  {
+    "question": "Quelle est la durée période d'essai pour un CDI ?",
+    "expected_answer": "Pour un CDI, la période d’essai est généralement de 2 mois, renouvelable une fois selon l’accord."
+  },
+  {
+    "question": "Puis-je être licencié sans motif ?",
+    "expected_answer": "Non, un licenciement doit être motivé par une cause réelle et sérieuse."
+  },
+  {
+    "question": "Quels sont mes droits en cas d'accident du travail ?",
+    "expected_answer": "En cas d’accident du travail, le salarié a droit à une prise en charge à 100% des soins et peut percevoir des indemnits journalières."
+  },
+  {
+    "question": "Qu'est-ce qu'un CDD ?",
+    "expected_answer": "Le contrat à durée déterminée (CDD) est utilisé pour des tâches précises et temporaires. Il doit comporter une date de fin."
+  }
+]

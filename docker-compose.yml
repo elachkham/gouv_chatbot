@@ -1,0 +1,53 @@
+# docker-compose.yml - AVEC CACHE PERSISTANT
+
+services:
+  chatbot-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      # Variables d'environnement pour les caches
+      - TRANSFORMERS_CACHE=/app/.cache/transformers
+      - HUGGINGFACE_HUB_CACHE=/app/.cache/huggingface
+      - SENTENCE_TRANSFORMERS_HOME=/app/.cache/sentence-transformers
+    volumes:
+      # Pour le développement: monter le code source
+      - ./app:/app/app
+      - ./data:/app/data
+      - ./vector_store:/app/vector_store
+      # 🔧 NOUVEAU: Cache persistant pour éviter re-téléchargement
+      - huggingface-cache:/app/.cache/huggingface
+      - transformers-cache:/app/.cache/transformers
+      - sentence-transformers-cache:/app/.cache/sentence-transformers
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s  # Plus de temps pour télécharger le modèle
+
+  # Service nginx (optionnel - peut être désactivé pour les tests)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - chatbot-rag
+    restart: unless-stopped
+    profiles:
+      - production  # Utilise ce profil pour activer nginx seulement en production
+
+# 🔧 NOUVEAU: Volumes nommés pour la persistance du cache
+volumes:
+  huggingface-cache:
+    driver: local
+  transformers-cache:
+    driver: local
+  sentence-transformers-cache:
+    driver: local
