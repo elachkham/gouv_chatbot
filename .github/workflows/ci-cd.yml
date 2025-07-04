@@ -99,7 +99,7 @@ jobs:
               os.makedirs("evaluation", exist_ok=True)
               
               # Score fixe pour les tests
-              score = 0.95
+              score = 0.30
               threshold = 0.95
               
               print(f"📊 Score simulé : {score}")
