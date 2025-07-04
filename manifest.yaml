@@ -6,4 +6,4 @@ retriever: FAISS
 corpus_path: data/code_travail.txt
 index_path: vector_store/faiss_index/index.faiss
 test_dataset: evaluation/fake_dataset.json
-ragas_threshold: 0.70
+ragas_threshold: 0.95
